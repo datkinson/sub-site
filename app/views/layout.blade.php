@@ -28,11 +28,15 @@
 						<li><a href='/'>Home</a></li>
 						@if(Auth::check())
 							<li><a href='/profile'>Profile</a></li>
-							<li><a href='/logout'>Logout</a></li>
-						@else
-							<li><a href='/login'>Login</a></li>
 						@endif
 					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					@if(Auth::check())
+							<li><a href='/logout'>Logout</a></li>
+					@else
+							<li><a href='/login'>Login</a></li>
+					@endif
+          </ul>
 				</div><!-- end nav -->
 			</div>
 		</div>
