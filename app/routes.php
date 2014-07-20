@@ -11,7 +11,27 @@
 |
 */
 
+
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('home');
 });
+
+Route::post('home', function()
+{
+	return View::make('home');
+});
+
+// route to show the login form
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+
+// route to process the form
+Route::post('login', array('uses' => 'HomeController@doLogin'))->before('guest');
+
+// route to logout
+Route::get('logout', array('uses' => 'HomeController@doLogout'))->before('auth');
+
+Route::get('profile', function()
+{
+	return View::make('profile');
+})->before('auth');
