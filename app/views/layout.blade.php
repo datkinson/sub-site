@@ -39,7 +39,9 @@
 
 		<!-- check for flash notification message -->
 		@if(Session::has('flash_notice'))
-			<div id="flash_notice">{{ Session::get('flash_notice') }}</div>
+			<div class="alert alert-info" role="alert">
+				<div id="flash_notice">{{ Session::get('flash_notice') }}</div>
+			</div>
 		@endif
 
 		@yield('content')

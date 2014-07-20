@@ -8,14 +8,16 @@
 			<h1>Login</h1>
 			<!-- check for login error flash var -->
 			@if (Session::has('flash_error'))
+			<div class="alert alert-danger" role="alert">
 	 			<div id="flash_error">{{ Session::get('flash_error') }}</div>
+			</div>
 			@endif
 
 			<!-- if there are login errors, show them here -->
-			<p>
+			<div class="" role="alert">
 				{{ $errors->first('email') }}
 				{{ $errors->first('password') }}
-			</p>
+			</div>
 
 			<div class="form-group">
 				{{ Form::label('email', 'Email Address') }}
