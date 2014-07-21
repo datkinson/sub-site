@@ -73,8 +73,6 @@ class HomeController extends BaseController {
 				return Redirect::to('login');
 
 			}
-
 		}
 	}
-
 }
