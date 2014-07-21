@@ -31,12 +31,17 @@ Route::post('login', array('uses' => 'HomeController@doLogin'))->before('guest')
 // route to logout
 Route::get('logout', array('uses' => 'HomeController@doLogout'))->before('auth');
 
+// route to profile
 Route::get('profile', function()
 {
 	return View::make('profile');
 })->before('auth');
 
+// route for settings
 Route::get('settings', function()
 {
 	return View::make('settings');
 })->before('auth');
+
+Route::post('settings/theme', array('uses' => 'SettingsController@doTheme'))->before('auth');
+
