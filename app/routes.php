@@ -28,6 +28,13 @@ Route::get('login', array('uses' => 'HomeController@showLogin'));
 // route to process the form
 Route::post('login', array('uses' => 'HomeController@doLogin'))->before('guest');
 
+// route to show the login form
+Route::get('register', function()
+{
+	return View::make('register');
+});
+Route::post('register', array('uses' => 'UsersController@doRegister'));
+
 // route to logout
 Route::get('logout', array('uses' => 'HomeController@doLogout'))->before('auth');
 
