@@ -1,3 +1,6 @@
+<?php
+$settings = Settings::where('user_id' ,'=', Auth::user()->id)->find(1);
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
@@ -7,7 +10,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Multi-site Generator</title>
 	{{ HTML::style('/bootstrap/dist/css/bootstrap.min.css') }}
-	{{ HTML::style('/themes/slate/bootstrap.min.css') }}
+	@if ($settings->theme != null)
+		{{ HTML::style('/themes/'.$settings->theme.'/bootstrap.min.css') }}
+	@endif
 	{{ HTML::style('/css/style.css') }}
 </head>
 <body>
