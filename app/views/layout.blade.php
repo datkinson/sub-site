@@ -1,6 +1,8 @@
+@if(Auth::check())
 <?php
 $settings = Settings::where('user_id' ,'=', Auth::user()->id)->find(1);
 ?>
+@endif
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
@@ -10,8 +12,10 @@ $settings = Settings::where('user_id' ,'=', Auth::user()->id)->find(1);
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Multi-site Generator</title>
 	{{ HTML::style('/bootstrap/dist/css/bootstrap.min.css') }}
-	@if ($settings->theme != null)
-		{{ HTML::style('/themes/'.$settings->theme.'/bootstrap.min.css') }}
+	@if(Auth::check())
+		@if ($settings->theme != null)
+			{{ HTML::style('/themes/'.$settings->theme.'/bootstrap.min.css') }}
+		@endif
 	@endif
 	{{ HTML::style('/css/style.css') }}
 </head>
