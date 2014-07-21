@@ -16,7 +16,8 @@ class CreateSettingsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
-			$table->int('user_id');
+			$table->integer('user_id')->unique();
+			$table->foreign('user_id')->references('id')->on('users');
 			$table->string('theme', 32);
 		});
 	}
