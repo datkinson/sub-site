@@ -7,11 +7,11 @@
 			$theme_list = array();
 			foreach ($files as $file)
 			{
-				$theme_list[ucfirst($file)] = $file;
+				$theme_list[$file] = ucfirst($file);
 			}
 ?>
 Your current theme is {{ $settings->theme }}
-{{ Form::open(array('url' => 'settings/theme', 'role' => 'form')) }}
+{{ Form::open(array('action' => 'SettingsController@doTheme', 'role' => 'form')) }}
 	<div class="form-group">
 		{{ Form::label('theme', 'Please select a theme:') }}
 		{{ Form::select('themes', $theme_list, $settings->theme, array('class' => 'form-control')) }}
