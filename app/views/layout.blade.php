@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Multi-site Generator</title>
 	{{ HTML::style('/bootstrap/dist/css/bootstrap.min.css') }}
+	{{ HTML::style('/themes/slate/bootstrap.min.css') }}
 	{{ HTML::style('/css/style.css') }}
 </head>
 <body>
@@ -32,6 +33,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 					@if(Auth::check())
+							<li><a href='/settings'>Settings</a></li>
 							<li><a href='/logout'>Logout</a></li>
 					@else
 							<li><a href='/login'>Login</a></li>

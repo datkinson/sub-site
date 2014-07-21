@@ -35,3 +35,8 @@ Route::get('profile', function()
 {
 	return View::make('profile');
 })->before('auth');
+
+Route::get('settings', function()
+{
+	return View::make('settings');
+})->before('auth');
